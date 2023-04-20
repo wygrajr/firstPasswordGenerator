@@ -9,7 +9,7 @@ function generatePassword(){
   if (8<=howManyChars<=128){
     passwordLength=howManyChars
   }
-  
+
   var wantSpecialChars=confirm("Would you like to include special characters?");
   var wantUpperChars=confirm("Would you like to include upper case characters?");
   var wantLowerChars=confirm("Would you like to include lower case characters?");
@@ -65,8 +65,9 @@ function generatePassword(){
     addNumbersChars=characters.concat(randomCharLower);
   }
 
-  for (var i=0;i<password.Length;i++){
-    password+=getRandomValueFromArray(addNumbersChars)
+  var password = "";
+  for (var i=0;i<passwordLength;i++){
+    password+=addNumbersChars[Math.floor(Math.random() + addNumbersChars)]
   }
 
   return generatePassword;
