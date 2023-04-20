@@ -3,7 +3,7 @@ var generateBtn = document.querySelector("#generate");
 
 function generatePassword(){
   var generatePassword="";
-  var characters=[];
+  
 
   var howManyChars=prompt("How many characters would you like to use in the password?");
   if (8<=howManyChars<=128){
@@ -28,41 +28,19 @@ function generatePassword(){
   var charNumbers=[0,1,2,3,4,5,6,7,8,9];
   var randomCharNumbers=getRandomValueFromArray(charNumbers);
 
- 
+  var characters=[];
+
   if (wantSpecialChars === true) {
-    addSpecialChars=characters.concat(randomCharSpecial);
+    characters.concat(randomCharSpecial);
   }
-
-  if (wantUpperChars===true/*&&wantSpecialChars===true*/){
-    addUpperChars=addSpecialChars.concat(randomCharUpper);
-  } else if (wantUpperChars===true&&wantSpecialChars===false){
-    addUpperChars=characters.concat(randomCharUpper);
+  if (wantUpperChars===true){
+    characters.concat(randomCharUpper);
   }
-
-  if (wantLowerChars===true/*&&wantUpperChars===true&&wantSpecialChars===true*/){
-    addLowerChars=addUpperChars.concat(randomCharLower);
-  } /*else if (wantLowerChars===true&&wantUpperChars===true&&wantSpecialChars===false){
-    addLowerChars=addUpperChars.concat(randomCharLower);
-  } else if (wantLowerChars===true&&wantUpperChars===false&&wantSpecialChars===true){
-    addLowerChars=addSpecialChars.concat(randomCharLower);
-  }*/ else if (wantLowerChars===true&&wantUpperChars===false&&wantSpecialChars===false){
-    addLowerChars=characters.concat(randomCharLower);
+  if (wantLowerChars===true){
+    characters.concat(randomCharLower);
   }
-
-  if (wantNumbersChars===true/*&&wantLowerChars===true&&wantUpperChars===true&&wantSpecialChars===true*/){
-    addNumbersChars=addLowerChars.concat(randomCharNumbers);
-  } /*else if (wantNumbersChars===true&&wantLowerChars===true&&wantUpperChars===true&&wantSpecialChars===false){
-    addNumbersChars=addLowerChars.concat(randomCharLower);
-  } else if (wantNumbersChars===true&&wantLowerChars===true&&wantUpperChars===false&&wantSpecialChars===true){
-    addNumbersChars=addLowerChars.concat(randomCharLower);
-  } else if (wantNumbersChars===true&&wantLowerChars===false&&wantUpperChars===true&&wantSpecialChars===false){
-    addNumbersChars=addUpperChars.concat(randomCharLower);
-  } else if (wantNumbersChars===true&&wantLowerChars===false&&wantUpperChars===true&&wantSpecialChars===true){
-    addNumbersChars=addUpperChars.concat(randomCharLower);
-  } else if (wantNumbersChars===true&&wantLowerChars===false&&wantUpperChars===false&&wantSpecialChars===true){
-    addNumbersChars=addSpecialChars.concat(randomCharLower);
-  }*/ else if (wantNumbersChars===true&&wantLowerChars===false&&wantUpperChars===false&&wantSpecialChars===false){
-    addNumbersChars=characters.concat(randomCharLower);
+  if (wantNumbersChars===true){
+    characters.concat(randomCharLower);
   }
 
   var password = "";
