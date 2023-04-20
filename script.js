@@ -2,10 +2,8 @@
 var generateBtn = document.querySelector("#generate");
 
 function generatePassword(){
-  var generatePassword="";
-  
 
-  var howManyChars=parseFloat(prompt("How many characters would you like to use in the password?"));
+  var howManyChars=prompt("How many characters would you like to use in the password?");
   var wantSpecialChars=confirm("Would you like to include special characters?");
   var wantUpperChars=confirm("Would you like to include upper case characters?");
   var wantLowerChars=confirm("Would you like to include lower case characters?");
@@ -36,13 +34,13 @@ function generatePassword(){
     characters.concat(randomCharLower);
   }
   if (wantNumbersChars===true){
-    characters.concat(randomCharLower);
+    characters.concat(randomCharNumbers);
   }
 
-  var pass="";
+  var generatePassword="";
   var passwordLength=howManyChars
 
-  for (var i=pass.length;i<passwordLength;i++){
+  for (var i=generatePassword.length;i<passwordLength;i++){
     password+=getRandomValueFromArray(characters);
   }
 
