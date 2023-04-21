@@ -1,6 +1,11 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+function getRandomValueFromArray(array){
+  var randomNum=Math.floor(Math.random() * array.length);
+  return array[randomNum];
+}
+
 function generatePassword(){
 
   var howManyChars=prompt("How many characters would you like to use in the password?");
@@ -11,37 +16,34 @@ function generatePassword(){
 
 
   var charSpecial=[" ","!","@","#","$","%","^","&","*","(",")","-","_","=","+"];
-  var randomCharSpecial=getRandomValueFromArray(charSpecial);
 
   var charUpper=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-  var randomCharUpper=getRandomValueFromArray(charUpper);
 
-  var charLower=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-  var randomCharLower=getRandomValueFromArray(charLower);
+  var charLower=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]; 
 
   var charNumbers=[0,1,2,3,4,5,6,7,8,9];
-  var randomCharNumbers=getRandomValueFromArray(charNumbers);
+
 
   var characters=[];
 
-  if (wantSpecialChars===true) {
-    characters.concat(randomCharSpecial);
+  if (wantSpecialChars) {
+    characters=characters.concat(charSpecial);
   }
-  if (wantUpperChars===true){
-    characters.concat(randomCharUpper);
+  if (wantUpperChars){
+    characters=characters.concat(charUpper);
   }
-  if (wantLowerChars===true){
-    characters.concat(randomCharLower);
+  if (wantLowerChars){
+    characters=characters.concat(charLower);
   }
-  if (wantNumbersChars===true){
-    characters.concat(randomCharNumbers);
+  if (wantNumbersChars){
+    characters=characters.concat(charNumbers);
   }
 
   var generatePassword="";
   var passwordLength=howManyChars
 
   for (var i=generatePassword.length;i<passwordLength;i++){
-    password+=getRandomValueFromArray(characters);
+    generatePassword+=getRandomValueFromArray(characters);
   }
 
   return generatePassword;
